@@ -155,9 +155,18 @@ function Hero({ onUpload, busy }: { onUpload: () => void; busy: boolean }) {
           className="fade-up mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           style={{ animationDelay: "0.55s" }}
         >
-          <button className="animate-pulse-glow inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-all hover:scale-105 hover:bg-primary/90">
-            <Upload className="h-5 w-5" />
-            Upload Resume
+          <button
+            type="button"
+            onClick={onUpload}
+            disabled={busy}
+            className="animate-pulse-glow inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-all hover:scale-105 hover:bg-primary/90 disabled:opacity-60"
+          >
+            {busy ? (
+              <Loader2 className="h-5 w-5 animate-spin" />
+            ) : (
+              <Upload className="h-5 w-5" />
+            )}
+            {busy ? "Analyzing…" : "Upload Resume"}
           </button>
           <a
             href="#how-it-works"
