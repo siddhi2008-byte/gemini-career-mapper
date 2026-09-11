@@ -15,6 +15,5 @@ export async function extractPdfText(file: File): Promise<string> {
         .map((item) => ("str" in item ? item.str : ""))
         .join(" ") + "\n";
   }
-  await doc.destroy();
   return text.replace(/\s+/g, " ").trim();
 }
