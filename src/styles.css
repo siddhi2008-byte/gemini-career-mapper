@@ -115,6 +115,16 @@
   }
 }
 
+/* ---- On-load fade-in for above-the-fold content (no JS needed) ---- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 /* ---- Gradient text utility ---- */
 @utility text-gradient {
   background: linear-gradient(135deg, var(--primary), var(--accent));
