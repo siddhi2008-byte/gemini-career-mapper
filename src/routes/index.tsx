@@ -452,6 +452,27 @@ function DashboardMockup() {
   );
 }
 
+const accentClasses: Record<
+  string,
+  { bg: string; bgSoft: string; text: string }
+> = {
+  primary: {
+    bgSoft: "bg-primary/15",
+    text: "text-primary",
+    bg: "bg-primary",
+  },
+  accent: {
+    bgSoft: "bg-accent/15",
+    text: "text-accent",
+    bg: "bg-accent",
+  },
+  "chart-3": {
+    bgSoft: "bg-chart-3/15",
+    text: "text-chart-3",
+    bg: "bg-chart-3",
+  },
+};
+
 function CareerMatch({
   rank,
   title,
@@ -463,23 +484,24 @@ function CareerMatch({
   match: number;
   accent: string;
 }) {
+  const c = accentClasses[accent];
   return (
     <div className="flex items-center gap-4">
       <div
-        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-${accent}/15 font-display text-lg font-bold text-${accent}`}
+        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${c.bgSoft} font-display text-lg font-bold ${c.text}`}
       >
         {rank}
       </div>
       <div className="flex-1">
         <div className="flex items-center justify-between">
           <span className="font-medium">{title}</span>
-          <span className={`font-display text-lg font-bold text-${accent}`}>
+          <span className={`font-display text-lg font-bold ${c.text}`}>
             {match}%
           </span>
         </div>
         <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-secondary">
           <div
-            className={`h-full rounded-full bg-${accent} transition-all duration-1000`}
+            className={`h-full rounded-full ${c.bg} transition-all duration-1000`}
             style={{ width: `${match}%` }}
           />
         </div>
