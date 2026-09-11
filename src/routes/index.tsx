@@ -96,7 +96,7 @@ function NavBar({ onUpload, busy }: { onUpload: () => void; busy: boolean }) {
 /* ============================================================ */
 /* HERO SECTION                                                  */
 /* ============================================================ */
-function Hero() {
+function Hero({ onUpload, busy }: { onUpload: () => void; busy: boolean }) {
   return (
     <section
       id="hero-upload"
