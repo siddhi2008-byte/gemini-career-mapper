@@ -114,23 +114,35 @@ function Hero() {
       />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <div className="reveal mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">
+        <div
+          className="fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary"
+          style={{ animationDelay: "0.1s" }}
+        >
           <Sparkles className="h-4 w-4" />
           Powered by Gemini AI
         </div>
 
-        <h1 className="reveal font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1
+          className="fade-up font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+          style={{ animationDelay: "0.25s" }}
+        >
           Confused about your career?
           <br />
           <span className="text-gradient">Let AI guide you.</span>
         </h1>
 
-        <p className="reveal mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
+        <p
+          className="fade-up mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl"
+          style={{ animationDelay: "0.4s" }}
+        >
           Upload your resume, get Top 3 career matches with 90-day roadmap and
           ATS score.
         </p>
 
-        <div className="reveal mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <div
+          className="fade-up mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+          style={{ animationDelay: "0.55s" }}
+        >
           <button className="animate-pulse-glow inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-all hover:scale-105 hover:bg-primary/90">
             <Upload className="h-5 w-5" />
             Upload Resume
@@ -145,7 +157,10 @@ function Hero() {
         </div>
 
         {/* Trust indicators */}
-        <div className="reveal mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
+        <div
+          className="fade-up mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground"
+          style={{ animationDelay: "0.7s" }}
+        >
           <span className="flex items-center gap-2">
             <CheckCircle2 className="h-4 w-4 text-accent" />
             Free to use
