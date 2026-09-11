@@ -57,7 +57,7 @@ function CareerCompass() {
 /* ============================================================ */
 /* NAV BAR                                                       */
 /* ============================================================ */
-function NavBar() {
+function NavBar({ onUpload, busy }: { onUpload: () => void; busy: boolean }) {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
