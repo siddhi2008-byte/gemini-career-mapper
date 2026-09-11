@@ -38,11 +38,15 @@ export const Route = createFileRoute("/")({
 
 function CareerCompass() {
   useReveal();
+  const { openPicker, fileInput, status, error, result, fileName, busy } =
+    useResumeAnalysis();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <NavBar />
-      <Hero />
+      {fileInput}
+      <NavBar onUpload={openPicker} busy={busy} />
+      <Hero onUpload={openPicker} busy={busy} />
+      <AnalysisSection status={status} error={error} result={result} fileName={fileName} />
       <HowItWorks />
       <DashboardMockup />
       <SiteFooter />
