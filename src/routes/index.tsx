@@ -305,26 +305,23 @@ function DashboardMockup() {
                   <div className="h-2 w-1/2 rounded bg-muted-foreground/30" />
                 </div>
                 {/* Lines simulating text */}
-                {[
-                  { w: "full" },
-                  { w: "5/6" },
-                  { w: "2/3" },
-                  { w: "full" },
-                  { w: "3/4" },
-                  { w: "1/2" },
-                ].map((line, i) => (
-                  <div key={i} className={`h-2 rounded bg-muted-foreground/20 w-${line.w}`} />
+                {["100%", "83%", "66%", "100%", "75%", "50%"].map((w, i) => (
+                  <div
+                    key={i}
+                    className="h-2 rounded bg-muted-foreground/20"
+                    style={{ width: w }}
+                  />
                 ))}
 
                 <div className="pt-3">
                   <div className="h-3 w-1/3 rounded bg-primary/30" />
                 </div>
-                {[
-                  { w: "full" },
-                  { w: "5/6" },
-                  { w: "2/3" },
-                ].map((line, i) => (
-                  <div key={i} className={`mt-2 h-2 rounded bg-muted-foreground/20 w-${line.w}`} />
+                {["100%", "83%", "66%"].map((w, i) => (
+                  <div
+                    key={i}
+                    className="mt-2 h-2 rounded bg-muted-foreground/20"
+                    style={{ width: w }}
+                  />
                 ))}
 
                 <div className="pt-3">
