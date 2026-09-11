@@ -449,8 +449,10 @@ function DashboardMockup() {
   );
 }
 
+type AccentKey = "primary" | "accent" | "chart-3";
+
 const accentClasses: Record<
-  string,
+  AccentKey,
   { bg: string; bgSoft: string; text: string }
 > = {
   primary: {
@@ -479,9 +481,9 @@ function CareerMatch({
   rank: number;
   title: string;
   match: number;
-  accent: string;
+  accent: AccentKey;
 }) {
-  const c = accentClasses[accent] ?? accentClasses.primary;
+  const c = accentClasses[accent];
   return (
     <div className="flex items-center gap-4">
       <div
