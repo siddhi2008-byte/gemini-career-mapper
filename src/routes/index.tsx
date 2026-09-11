@@ -11,7 +11,9 @@ import {
   Code2,
   Trophy,
 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { useReveal } from "../hooks/use-reveal";
+import { useResumeAnalysis, AnalysisSection } from "../components/resume-analysis";
 import heroBg from "../assets/hero-bg.jpg";
 
 export const Route = createFileRoute("/")({
@@ -36,11 +38,15 @@ export const Route = createFileRoute("/")({
 
 function CareerCompass() {
   useReveal();
+  const { openPicker, fileInput, status, error, result, fileName, busy } =
+    useResumeAnalysis();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <NavBar />
-      <Hero />
+      {fileInput}
+      <NavBar onUpload={openPicker} busy={busy} />
+      <Hero onUpload={openPicker} busy={busy} />
+      <AnalysisSection status={status} error={error} result={result} fileName={fileName} />
       <HowItWorks />
       <DashboardMockup />
       <SiteFooter />
@@ -51,7 +57,7 @@ function CareerCompass() {
 /* ============================================================ */
 /* NAV BAR                                                       */
 /* ============================================================ */
-function NavBar() {
+function NavBar({ onUpload, busy }: { onUpload: () => void; busy: boolean }) {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -68,13 +74,19 @@ function NavBar() {
           <a href="#dashboard" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
             Dashboard
           </a>
-          <a
-            href="#hero-upload"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
+          <button
+            type="button"
+            onClick={onUpload}
+            disabled={busy}
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-105 disabled:opacity-60"
           >
-            <Upload className="h-4 w-4" />
+            {busy ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <Upload className="h-4 w-4" />
+            )}
             Upload Resume
-          </a>
+          </button>
         </div>
       </nav>
     </header>
@@ -84,7 +96,7 @@ function NavBar() {
 /* ============================================================ */
 /* HERO SECTION                                                  */
 /* ============================================================ */
-function Hero() {
+function Hero({ onUpload, busy }: { onUpload: () => void; busy: boolean }) {
   return (
     <section
       id="hero-upload"
@@ -143,9 +155,18 @@ function Hero() {
           className="fade-up mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           style={{ animationDelay: "0.55s" }}
         >
-          <button className="animate-pulse-glow inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-all hover:scale-105 hover:bg-primary/90">
-            <Upload className="h-5 w-5" />
-            Upload Resume
+          <button
+            type="button"
+            onClick={onUpload}
+            disabled={busy}
+            className="animate-pulse-glow inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-all hover:scale-105 hover:bg-primary/90 disabled:opacity-60"
+          >
+            {busy ? (
+              <Loader2 className="h-5 w-5 animate-spin" />
+            ) : (
+              <Upload className="h-5 w-5" />
+            )}
+            {busy ? "Analyzing…" : "Upload Resume"}
           </button>
           <a
             href="#how-it-works"
