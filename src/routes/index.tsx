@@ -11,7 +11,9 @@ import {
   Code2,
   Trophy,
 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { useReveal } from "../hooks/use-reveal";
+import { useResumeAnalysis, AnalysisSection } from "../components/resume-analysis";
 import heroBg from "../assets/hero-bg.jpg";
 
 export const Route = createFileRoute("/")({
