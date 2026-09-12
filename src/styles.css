@@ -197,3 +197,10 @@ html {
 .animate-scroll-bounce {
   animation: scroll-bounce 2s ease-in-out infinite;
 }
+
+/* ---- Hide the Lovable badge ---- */
+[data-lovable-badge],
+#lovable-badge,
+a[href*="lovable.dev"] {
+  display: none !important;
+}
