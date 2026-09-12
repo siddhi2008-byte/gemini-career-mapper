@@ -1,6 +1,6 @@
 # Career Compass AI - AI Career Navigator
 
-**Live Demo:** https://gemini-career-mapper.lovable.app
+**Live Demo:** https://gemini-career-mapper.vercel.app/
 **Team:** Idea Engineer - HackDays Solan 2026
 
 ### Tagline
