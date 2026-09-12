@@ -14,7 +14,7 @@ Confused about your career? Let AI guide you.
 - 90-Day Roadmap (Week 1-4, 5-8, 9-12)
 
 ### Tech Stack
-Lovable, React, TypeScript, Gemini 1.5 Flash API, Tailwind CSS, pdf.js
+ Gemini 2.0 Flash API, pdf.js
 
 ### How to Run
 npm install
